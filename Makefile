@@ -16,10 +16,10 @@ build: promu
 	@$(PROMU) build --prefix $(PREFIX)
 
 short-build:
-	go install github.com/coreos/prometheus-operator/cmd/operator
+	go install prometheus-operator/cmd/operator
 
 po-crdgen:
-	go install github.com/coreos/prometheus-operator/cmd/po-crdgen
+	go install prometheus-operator/cmd/po-crdgen
 
 crossbuild: promu
 	@$(PROMU) crossbuild
@@ -60,7 +60,7 @@ embedmd:
 	@go get github.com/campoy/embedmd
 
 po-docgen:
-	@go install github.com/coreos/prometheus-operator/cmd/po-docgen
+	@go install prometheus-operator/cmd/po-docgen
 
 docs: embedmd po-docgen
 	$(GOPATH)/bin/embedmd -w `find Documentation -name "*.md"`
